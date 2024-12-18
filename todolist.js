@@ -11,12 +11,14 @@ window.onload = function(){
     function addTask() {
         const taskInput = document.getElementById("task-input").value;
         const dateInput = document.getElementById("date-input").value;
+        const priorityInput = document.getElementById("priority-input").value;
 
         if(taskInput && dateInput){
             const newTask = {
                 id: Date.now(),
                 task: taskInput,
                 date: dateInput,
+                priority: priorityInput,
                 completed: false,
             };
 
@@ -31,6 +33,7 @@ window.onload = function(){
     function clearInputs(){
         document.getElementById("task-input").value="";
         document.getElementById("date-input").value="";
+        document.getElementById("priority-input").value="";
     }
 
     
@@ -43,7 +46,7 @@ window.onload = function(){
         단순히 Date(a.date)를 사용하면 반환값이 문자열이므로 sort나 산술 연산에서 제대로 동작하지 않음*/
 
         tasks
-            .sort((a, b) => new Date(a.date) - new Date(b.date))
+            .sort((a, b) => a.priority - b.priority || new Date(a.date) - new Date(b.date))
             .forEach((task) => {
                 const listItem = document.createElement("li");
 
@@ -54,7 +57,7 @@ window.onload = function(){
                 checkbox.addEventListener("change", () => toggleTask(task.id) );
 
                 const taskText = document.createTextNode(
-                    `${task.task} (${task.date})`
+                    `[${task.priority}] ${task.task} (${task.date})`
                 );
 
                 // 완료된 작업에 취소선 추가
