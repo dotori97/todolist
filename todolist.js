@@ -92,10 +92,13 @@ window.onload = function(){
 
 
     //할 일 삭제
-    function deleteTask(id){
-        tasks = tasks.filter((task) => task.id !== id)
-        saveToLocalStorage();
-        renderTasks();
+    function deleteTask(id){        
+        const confirmation = confirm("정말 삭제하시겠습니까?");
+        if(confirmation){
+            tasks = tasks.filter((task) => task.id !== id)
+            saveToLocalStorage();
+            renderTasks();
+        }
     }
 
     //storage에 task추가
