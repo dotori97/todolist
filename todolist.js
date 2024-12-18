@@ -50,6 +50,7 @@ window.onload = function(){
                 const checkbox = document.createElement("input");
                 checkbox.type = "checkbox";
                 checkbox.checked = task.completed;
+                checkbox.classList.add("check"); 
                 checkbox.addEventListener("change", () => toggleTask(task.id) );
 
                 const taskText = document.createTextNode(
@@ -63,6 +64,7 @@ window.onload = function(){
 
                 const deleteButton = document.createElement("button");
                 deleteButton.textContent ="삭제";
+                deleteButton.classList.add("delete-btn"); // 'delete-btn' 클래스 추가
                 deleteButton.addEventListener("click", ()=> deleteTask(task.id));
 
                 listItem.appendChild(checkbox);
