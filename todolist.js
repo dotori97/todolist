@@ -12,14 +12,11 @@ window.onload = function(){
         const taskInput = document.getElementById("task-input").value;
         const dateInput = document.getElementById("date-input").value;
 
-        const task = taskInput.value.trim();
-        const date = dateInput.value;
-
-        if(task && date){
+        if(taskInput && dateInput){
             const newTask = {
                 id: Date.now(),
-                task: task,
-                date: date,
+                task: taskInput,
+                date: dateInput,
                 completed: false,
             };
 
