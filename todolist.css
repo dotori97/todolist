@@ -14,10 +14,10 @@ body {
 .container {
     display: flex;
     flex-direction: column; /* 세로로 배치 */
-    align-items: center; /* 수평 중앙 정렬 */
+    align-items: center; /*수평 중앙 정렬 */
     justify-content: center; /* 수직 중앙 정렬 */
     width: 100%;
-    max-width: 600px; /* 최대 너비 600px */
+    max-width: 480px; /* 최대 너비 600px */
     padding: 20px;
     box-sizing: border-box;
 }
@@ -25,10 +25,14 @@ body {
 /* 입력창을 감싸는 div */
 .input-container {
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     align-items: center; /* 수평 중앙 정렬 */
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+.button-container{
+    display: flex;
+    flex-direction:row;    
 }
 
 /* 각 입력창 스타일 */
@@ -43,28 +47,20 @@ body {
     padding: 10px;
     margin-top: 5px;
     text-align: center;
+    background-color: #fff59d;
 }
 
 /* 추가 버튼 스타일 */
-#add-task-btn{
-    padding: 10px 20px;
-    font-size: 14px;
-    margin-top: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 30%;
-    max-width: 100px; /
-}
+#add-task-btn,
 #edit-task-btn {
-    padding: 10px 20px;
+    padding: 15px 30px;
     font-size: 14px;
-    margin-top: 5px;
+    margin: 3px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 30%;
-    max-width: 100px; /* 최대 너비 설정 */
+    width: 100%;
+    max-width: 200px; /* 최대 너비 설정 */
 }
 
 /* 추가 버튼 색상 */
