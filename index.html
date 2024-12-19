@@ -9,14 +9,18 @@
         <script src="./todolist.js"></script>
     </head>
     <body>
-        <div>
-            <input type="text" id="task-input" placeholder="할 일을 입력하세요">            
-            <!-- <input type="date" id="date-input"> -->
-            <input type="datetime-local" id="date-input" placeholder="날짜 및 시간">
-            <input type="number" id="priority-input" placeholder="우선순위" min="1">
-            <button id="add-task-btn">추가</button>
-            <button id="edit-task-btn">편집</button>
+        <!-- 중앙 정렬을 위한 container div -->
+        <div class="container">
+            <!-- 입력창들을 감싸는 div -->
+            <div class="input-container">
+                <input type="text" id="task-input" placeholder="할 일을 입력하세요">            
+                <input type="datetime-local" id="date-input" placeholder="날짜 및 시간">
+                <input type="number" id="priority-input" placeholder="우선순위" min="1">
+                <button id="add-task-btn">추가</button>
+                <button id="edit-task-btn">편집</button>
+            </div>
+            <!-- 할 일 목록 -->
+            <ul id="todo-list"></ul>
         </div>
-        <ul id="todo-list"></ul>
     </body>    
 </html>
