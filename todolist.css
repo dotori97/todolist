@@ -25,6 +25,25 @@ body {
     box-sizing: border-box;    
 }
 
+.intro{
+    display: flex;
+    flex-direction:column;
+    align-items: center; /*수평 중앙 정렬 */
+    justify-content: center;
+    width: 100%;
+    max-width: 480px; /* 적절한 최대 너비 설정 */
+    margin: 0 auto; /* 가로 방향 중앙 배치 */
+}
+
+.fit-picture{
+    display: flex;
+    align-items: center; /*수평 중앙 정렬 */
+    justify-content: center; /* 수직 중앙 정렬 */
+    width: 50%;
+    max-width: 480px; /* 적절한 최대 너비 설정 */
+    margin: 0 auto; /* 가로 방향 중앙 배치 */
+}
+
 /* 입력창을 감싸는 div */
 .task-container {
     display: flex;
@@ -131,7 +150,7 @@ ul {
     padding: 0;
     width: 100%;
     max-width: 600px;
-    height: 400px; /* 원하는 높이 설정 */
+    height: 350px; /* 원하는 높이 설정 */
     overflow-y: auto; /* 세로 스크롤 활성화 */
     border: 1px solid #ccc; /* 경계선 추가 (선택 사항) */
     border-radius: 5px; /* 모서리 둥글게 */
