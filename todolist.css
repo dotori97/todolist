@@ -5,7 +5,7 @@ body {
     font-family: Arial, sans-serif; /* 글꼴 설정 */
     font-family: "Gaegu", "Nanum Pen Script", serif;    
     font-weight: 300;
-    font-size: 18px;    
+    font-size: 17px;    
     display: flex;
     justify-content: center; /* 수평 중앙 정렬 */
     align-items: center; /* 수직 중앙 정렬 */
@@ -27,11 +27,19 @@ body {
 }
 
 /* 입력창을 감싸는 div */
-.input-container {
+.task-container {
     display: flex;
     flex-direction:column;
     align-items: center; /* 수평 중앙 정렬 */
     width: 100%;
+    margin-bottom: 10px;
+}
+.date-container {
+    display: flex;
+    flex-direction:row;
+    align-items: center; /* 수평 중앙 정렬 */
+    width: 100%;
+    max-width: 295px;    
     margin-bottom: 10px;
 }
 .button-container{
@@ -52,6 +60,9 @@ body {
     margin-top: 5px;
     text-align: center;
     background-color: rgb(255, 255, 236);
+}
+#priority-input{
+    margin-left:5px;
 }
 
 /* 추가 버튼 스타일 */
