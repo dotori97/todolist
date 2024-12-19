@@ -1,5 +1,5 @@
 #task-input{
-    width: 250px;
+    width: 270px;
     height: 35px;
     border: solid 1px gray;
     border-radius: 5px;
@@ -28,7 +28,7 @@
     padding:10px;
     text-align: center;
 }
-button {
+#add-task-btn {
     padding: 20px 20px; /* 버튼 안의 여백 */
     font-size: 14px; /* 글자 크기 */
     margin-top: 5px; 
@@ -41,8 +41,24 @@ button {
 }
 
 /* 버튼에 마우스를 올렸을 때 스타일 */
-button:hover {
+#add-task-btn:hover {
     background-color: #45a049; /* 배경색을 좀 더 어두운 색으로 변경 */
+}
+
+#edit-task-btn{
+    padding: 20px 20px; /* 버튼 안의 여백 */
+    font-size: 14px; /* 글자 크기 */
+    margin-top: 5px; 
+    margin-left: 2px;
+    border: none; /* 기본 테두리 제거 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    background-color: #ffda06; /* 배경색 */
+    color: white; /* 글자색 */
+    cursor: pointer; /* 마우스를 올렸을 때 커서 모양 변경 */
+}
+
+#edit-task-btn:hover{
+    background-color: #dfc011;
 }
 
 /* 삭제 버튼에만 적용할 스타일 */
@@ -62,6 +78,11 @@ button.edit-btn{
 button.delete-btn:hover {
     background-color: #d32f2f; /* 더 어두운 빨간색 배경 */
 }
+
+button.edit-btn:hover{
+    background-color: #159cb1; 
+}
+
 ul{
     list-style-type: none;
     padding: 0px 0px 0px 10px;

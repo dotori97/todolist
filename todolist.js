@@ -10,6 +10,9 @@ window.onload = function(){
         .getElementById("add-task-btn")
         .addEventListener("click", addTask);
 
+    document
+        .getElementById("edit-task-btn")
+        .addEventListener("click", toggleEditButtons);
 };    
 
     //할 일 추가 또는 수정    
@@ -87,11 +90,13 @@ window.onload = function(){
                 const deleteButton = document.createElement("button");
                 deleteButton.textContent ="삭제";
                 deleteButton.classList.add("delete-btn"); // 'delete-btn' 클래스 추가
+                deleteButton.style.display = "none";
                 deleteButton.addEventListener("click", ()=> deleteTask(task.id));
 
                 const editButton = document.createElement("button");
                 editButton.textContent = "수정";
                 editButton.classList.add("edit-btn");
+                editButton.style.display = "none";
                 editButton.addEventListener("click", () => editTask(task.id));
 
                 listItem.appendChild(checkbox);
@@ -144,6 +149,22 @@ window.onload = function(){
         }            
     }
     
+    function toggleEditButtons(){
+        const taskItems = document.querySelectorAll("li");
+
+        taskItems.forEach((item) => {
+            const editButton = item.querySelector(".edit-btn");
+            const deleteButton = item.querySelector(".delete-btn");
+
+            if(editButton.style.display === "none"){
+                editButton.style.display = "inline-block";
+                deleteButton.style.display = "inline-block";
+            }else{
+                editButton.style.display="none";
+                deleteButton.style.display="none";
+            }
+        });
+    }
 
     //storage에 task추가
     function saveToLocalStorage(){
