@@ -1,19 +1,38 @@
+//전역 변수와 초기화
+let tasks = [];
+let isEditing = false;
+let editingTaskId = null;
+
+//초기 로드 및 이벤트 리스너 설정
 window.onload = function(){
     loadFromLocalStorage();
     document
         .getElementById("add-task-btn")
         .addEventListener("click", addTask);
 
-}    
-    //할 일 추가
-    let tasks = [];
+};    
 
+    //할 일 추가 또는 수정    
     function addTask() {
         const taskInput = document.getElementById("task-input").value;
         const dateInput = document.getElementById("date-input").value;
         const priorityInput = document.getElementById("priority-input").value;
 
-        if(taskInput && dateInput){
+        if (!taskInput || !dateInput || !priorityInput) return;
+
+        if(isEditing){
+            //수정 상태일 때
+            const task = tasks.find((task)=> task.id === editingTaskId);
+            if(task){
+                task.task = taskInput;
+                task.date = dateInput;
+                task.priority = priorityInput;
+            }
+            isEditing = false;
+            editingTaskId = null;
+            document.getElementById("add-task-btn").textContent="추가";
+        } else {
+            //새로운 작업 추가
             const newTask = {
                 id: Date.now(),
                 task: taskInput,
@@ -21,12 +40,12 @@ window.onload = function(){
                 priority: priorityInput,
                 completed: false,
             };
-
             tasks.push(newTask);
-            saveToLocalStorage();    
-            renderTasks();    
-            clearInputs();        
-        }
+        }       
+        
+        saveToLocalStorage();    
+        renderTasks();    
+        clearInputs();        
     }
 
     //input창 초기화
@@ -70,8 +89,14 @@ window.onload = function(){
                 deleteButton.classList.add("delete-btn"); // 'delete-btn' 클래스 추가
                 deleteButton.addEventListener("click", ()=> deleteTask(task.id));
 
+                const editButton = document.createElement("button");
+                editButton.textContent = "수정";
+                editButton.classList.add("edit-btn");
+                editButton.addEventListener("click", () => editTask(task.id));
+
                 listItem.appendChild(checkbox);
                 listItem.appendChild(taskText);
+                listItem.appendChild(editButton);
                 listItem.appendChild(deleteButton);
 
                 todolist.appendChild(listItem);
@@ -103,6 +128,22 @@ window.onload = function(){
             renderTasks();
         }
     }
+
+    //수정 기능 
+    function editTask(id){
+        const task = tasks.find((task) => task.id === id);
+        if(task){
+            isEditing = true;
+            editingTaskId = id; 
+
+            document.getElementById("task-input").value = task.task;
+            document.getElementById("date-input").value = task.date;
+            document.getElementById("priority-input").value = task.priority;
+            document.getElementById("add-task-btn").textContent="저장";
+
+        }            
+    }
+    
 
     //storage에 task추가
     function saveToLocalStorage(){
