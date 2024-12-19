@@ -21,7 +21,7 @@ window.onload = function(){
         const dateInput = document.getElementById("date-input").value;
         const priorityInput = document.getElementById("priority-input").value;
 
-        if (!taskInput || !dateInput || !priorityInput) return;
+        if (!taskInput || !dateInput) return;
 
         if(isEditing){
             //수정 상태일 때

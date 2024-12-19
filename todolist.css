@@ -10,7 +10,7 @@ body {
     justify-content: center; /* 수평 중앙 정렬 */
     align-items: center; /* 수직 중앙 정렬 */
     height: 100vh; /* 화면 전체 높이 */
-    padding: 0;
+    padding: 0;    
 }
   
 /* 중앙에 배치된 콘텐츠 */
@@ -24,6 +24,7 @@ body {
     padding: 20px;
     margin-top: 60px;
     box-sizing: border-box;
+    position: relative;
 }
 
 /* 입력창을 감싸는 div */
@@ -33,6 +34,7 @@ body {
     align-items: center; /* 수평 중앙 정렬 */
     width: 100%;
     margin-bottom: 10px;
+    position:sticky;
 }
 .date-container {
     display: flex;
@@ -41,10 +43,12 @@ body {
     width: 100%;
     max-width: 295px;    
     margin-bottom: 10px;
+    position:sticky;
 }
 .button-container{
     display: flex;
-    flex-direction:row;    
+    flex-direction:row;
+    position:sticky;    
 }
 
 /* 각 입력창 스타일 */
