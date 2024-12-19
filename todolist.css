@@ -1,10 +1,10 @@
 /* 전체 페이지 배경을 베이지색으로 설정 */
 body {
-    background-color: rgb(251, 251, 233); /* 배경색 설정 */
+    background-color: rgb(255, 255, 247); /* 배경색 설정 */
     margin: 0;        
     font-family: Arial, sans-serif; /* 글꼴 설정 */
     font-family: "Gaegu", "Nanum Pen Script", serif;    
-    font-weight: 400;
+    font-weight: 300;
     font-size: 20px;    
     display: flex;
     justify-content: center; /* 수평 중앙 정렬 */
@@ -22,6 +22,7 @@ body {
     width: 100%;
     max-width: 480px; /* 최대 너비 600px */
     padding: 20px;
+    margin-top: 60px;
     box-sizing: border-box;
 }
 
@@ -50,7 +51,7 @@ body {
     padding: 10px;
     margin-top: 5px;
     text-align: center;
-    background-color: rgb(253, 253, 219);
+    background-color: rgb(255, 255, 236);
 }
 
 /* 추가 버튼 스타일 */
