@@ -62,7 +62,8 @@ window.onload = function(){
         modalContent.innerHTML=`
             <h3>== 배경색 설정 도움말 ==</h3>
             <p>color picker가 기본적으로 제시하는 색상이<br> 
-            마음에 들지 않을 경우 맞춤설정을 이용하세요.<br> 
+            마음에 들지 않을 경우<br> 
+            맞춤설정을 이용하세요.<br> 
             다양한 색상과 만나실 수 있습니다.<br></p>
             <img src="./help.jpg" alt="color picker" style="width:100%; margin-top:10px;">
         `;
