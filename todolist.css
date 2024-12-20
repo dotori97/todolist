@@ -72,11 +72,11 @@ body {
     flex-direction:row;
 }
 #about-btn{
-    padding: 15px 30px;
+    padding: 16px 30px;
     font-size: 14px;        
     margin-top: 5px;
     margin-left: 3px;
-    background-color: #e0e068;
+    background-color: #dddd29;
     color: white;
     border: none;
     border-radius: 5px;
@@ -84,6 +84,10 @@ body {
     width: 100%;
     max-width: 120px;
 }
+#about-btn:hover{
+    background-color: #b1b11e;
+}
+
 .button-container{
     display: flex;
     flex-direction:row;        
@@ -141,7 +145,8 @@ body {
     font-size: 14px;        
     margin-top: 5px;
     border: none;
-    border-radius: 5px;
+    color: white;
+    border-radius: 8px;
     cursor: pointer;
     width: 100%;
     max-width: 200px; /* 최대 너비 설정 */
@@ -149,23 +154,21 @@ body {
 
 /* 추가 버튼 색상 */
 #add-task-btn {
-    background-color: #6bd162;
-    color: white;
+    background-color: #36A9AE;        
 }
 
 #add-task-btn:hover {
-    background-color: #45a049;
+    background-color: #1e7c81;
 }
 
 /* 편집 버튼 색상 */
 #edit-task-btn {
-    background-color: #f8b966;
-    color: white;
+    background-color: #EA4C89;    
     margin-left: 3px;
 }
 
 #edit-task-btn:hover {
-    background-color: #dfc011;
+    background-color: #ce2c6a;
 }
 
 /* 삭제 버튼 스타일 */
