@@ -13,6 +13,24 @@ window.onload = function(){
     document
         .getElementById("edit-task-btn")
         .addEventListener("click", toggleEditButtons);
+
+    const aboutButton = document.getElementById("about-btn");
+    const modal = document.getElementById("about-modal");
+    const closeModal = document.getElementById("close-modal");
+    
+    aboutButton.addEventListener("click", function(){
+        modal.style.display = "block";
+    })
+
+    closeModal.addEventListener("click", function(){
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function(event){
+        if(event.target === modal){
+            modal.style.display="none";
+        }
+    });
 };    
 
     //할 일 추가 또는 수정    
@@ -20,6 +38,7 @@ window.onload = function(){
         const taskInput = document.getElementById("task-input").value;
         const dateInput = document.getElementById("date-input").value;
         const priorityInput = document.getElementById("priority-input").value;
+        const colorInput = document.getElementById("color-input").value;
 
         if (!taskInput || !dateInput) return;
 
@@ -30,6 +49,7 @@ window.onload = function(){
                 task.task = taskInput;
                 task.date = dateInput;
                 task.priority = priorityInput;
+                task.color = colorInput;
             }
             isEditing = false;
             editingTaskId = null;
@@ -41,6 +61,7 @@ window.onload = function(){
                 task: taskInput,
                 date: dateInput,
                 priority: priorityInput,
+                color: colorInput,
                 completed: false,
             };
             tasks.push(newTask);
@@ -56,6 +77,7 @@ window.onload = function(){
         document.getElementById("task-input").value="";
         document.getElementById("date-input").value="";
         document.getElementById("priority-input").value="";
+        document.getElementById("color-input").value = "#f9f9f9";
     }
 
     
@@ -71,6 +93,7 @@ window.onload = function(){
             .sort((a, b) => a.priority - b.priority || new Date(a.date) - new Date(b.date))
             .forEach((task) => {
                 const listItem = document.createElement("li");
+                listItem.style.backgroundColor = task.color || "#f9f9f9";
 
                 const checkbox = document.createElement("input");
                 checkbox.type = "checkbox";
