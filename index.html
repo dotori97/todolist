@@ -37,25 +37,16 @@
                 <div class="color-container">
                     <label for="color-input">배경색 선택</label>                    
                     <input type="color" id="color-input" value="#f9f9f9">
-                    <div class="tooltip">할 일을 추가하거나 수정할 때 배경색을 선택할 수 있습니다</div>
-                </div>  
+                    <button id="tooltipBtn">도움말</button>
+                </div>                  
             </div>
             <!-- 할 일 목록 -->
             <ul id="todo-list"></ul>
         </div>
         <div id="about-modal" class="modal">
             <div class="modal-content">
-                <span id="close-modal" class="close">&times;</span>
-                <h2>==Notice!==</h2>
-                <p>해당 앱은 서버없이 동작하는<br> 
-                    정적 웹앱입니다.<br> 
-                    LocalStorage를 사용하여 사용자의<br> 
-                    브라우저에 데이터를 저장하는 방식입니다.<br> 
-                    데이터를 다른 사람과 공유하거나<br> 
-                    여러 기기에서 동기화는 불가능합니다.<br> 
-                    To Do List가 개인용이고 로컬 환경에만<br> 
-                    저장해도 괜찮을 때 사용하세요.<br><br>                    
-                </p>
+                <span id="close-modal" class="close">&times;</span>                
+                <p id="modal-content"></p>
             </div>
         </div>
     </body>    

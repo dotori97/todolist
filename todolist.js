@@ -18,7 +18,9 @@ const quotes = [
     "이제부터 인생이 무어냐고 묻거든 허튼 삶 삽질하는 힘이라고 말해둬 -고정희",
     "몸을 가진 것들은 걸린다. 걸려본 발이 길을 알리라. -이원",
     "관계란 기억의 교환이다 -황현산",
-    "자신의 기억을 갖지 못하는 인간은 다른 사람의 기억 속으로 들어갈 수 없다. -황현산"
+    "자신의 기억을 갖지 못하는 인간은 다른 사람의 기억 속으로 들어갈 수 없다. -황현산",
+    "내가 오늘 하는 모든 것은 반드시 동시에 두 개가 탄생한다. 어느 시간대에 가면 만날 거다. 이게 양자역학 동시성 원리 -김미경",
+    "꿈을 이루는 장소는 현재에요. 만나는 장소는 미래에요. -김미경"
 ];
 //초기 로드 및 이벤트 리스너 설정
 window.onload = function(){
@@ -33,11 +35,37 @@ window.onload = function(){
         .getElementById("edit-task-btn")
         .addEventListener("click", toggleEditButtons);
 
+    
     const aboutButton = document.getElementById("about-btn");
     const modal = document.getElementById("about-modal");
     const closeModal = document.getElementById("close-modal");
+    const tooltipBtn = document.getElementById("tooltipBtn");
+    const modalContent = document.getElementById("modal-content");
     
     aboutButton.addEventListener("click", function(){
+        modalContent.innerHTML=`
+            <h2>==Notice!==</h2>
+            <p>해당 앱은 서버없이 동작하는<br> 
+               정적 웹앱입니다.<br> 
+               LocalStorage를 사용하여 사용자의<br> 
+               브라우저에 데이터를 저장하는 방식입니다.<br> 
+               데이터를 다른 사람과 공유하거나<br> 
+               여러 기기에서 동기화는 불가능합니다.<br> 
+               To Do List가 개인용이고 로컬 환경에만<br> 
+               저장해도 괜찮을 때 사용하세요.<br><br> 
+            </p>        
+        `;
+        modal.style.display = "block";
+    })
+
+    tooltipBtn.addEventListener("click", function(){
+        modalContent.innerHTML=`
+            <h3>== 배경색 설정 도움말 ==</h3>
+            <p>color picker가 기본적으로 제시하는 색상이<br> 
+            마음에 들지 않을 경우 맞춤설정을 이용하세요.<br> 
+            다양한 색상과 만나실 수 있습니다.<br></p>
+            <img src="./help.jpg" alt="color picker" style="width:100%; margin-top:10px;">
+        `;
         modal.style.display = "block";
     })
 

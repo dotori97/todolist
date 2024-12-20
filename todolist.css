@@ -102,18 +102,8 @@ body {
     margin-left: 7px;
 }
 
-.tooltip{
-    display: none;
-    position: absolute;
-    top: 100%; /*버튼 아래에 나타나도록*/
-    left:0;
-    background-color: rgba(0, 0, 0, 0.8);
-    color:white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    white-space: nowrap;
-    z-index: 10;
+#tooltipBtn{
+    margin-left: 7px;
 }
 
 .color-container:hover .tooltip{
@@ -264,3 +254,4 @@ input.check {
 .close:hover{
     color: gray;
 }
+
