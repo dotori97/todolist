@@ -154,7 +154,8 @@ body {
 
 /* 추가 버튼 색상 */
 #add-task-btn {
-    background-color: #36A9AE;        
+    background-color: #36A9AE;   
+         
 }
 
 #add-task-btn:hover {
