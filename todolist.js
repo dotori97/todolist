@@ -3,9 +3,28 @@ let tasks = [];
 let isEditing = false;
 let editingTaskId = null;
 
+const quotes = [
+    "시간은 채우는 것보다 비우는 게 더 중요하다",
+    "자기 삶에서 단순함의 너른 빈터를 충분히 남겨두어야만 인간일 수 있다. -조지 오웰",
+    "모든 사건은 한 가지 이상의 일을 하고 있다. -김미경",
+    "보이는 것은 단면이지만 측면이 뒷면이 있다는 걸 잊지마라. -김미경",
+    "감사에는 예언의 힘이 있다. -김미경",  
+    "생산성은 더 많은 일을 해내는 게 아니라 올바른 일을 해내는 것",
+    "당시에는 지긋지긋했지만 이제 그 기억은 내 마음이 뜯어먹기 좋아하는 좋은 풀밭이 되었다. -조지 오웰",
+    "모방은 물듦이다. 진정한 모방의 힘은 충실하고 충실해서 마침내 그 모방을 뚫어내는 길 속에 있다. -은유",
+    "다른 생활습관에 자신을 노출시키고, 인간 본성의 무한한 다양성을 구경하는 것보다 더 나은 삶의 학교를 모르겠다. -몽테뉴",
+    "책을 읽는 것이 아니다. 행간에 머무르고 거주하는 것이다. -발터 벤야민",
+    "첫 번째 판단은 버려라. 그것은 시대가 네 몸을 통해 판단한 것이다. -니체",
+    "이제부터 인생이 무어냐고 묻거든 허튼 삶 삽질하는 힘이라고 말해둬 -고정희",
+    "몸을 가진 것들은 걸린다. 걸려본 발이 길을 알리라. -이원",
+    "관계란 기억의 교환이다 -황현산",
+    "자신의 기억을 갖지 못하는 인간은 다른 사람의 기억 속으로 들어갈 수 없다. -황현산"
+];
 //초기 로드 및 이벤트 리스너 설정
 window.onload = function(){
     loadFromLocalStorage();
+    displayRandomQuote();
+
     document
         .getElementById("add-task-btn")
         .addEventListener("click", addTask);
@@ -32,6 +51,11 @@ window.onload = function(){
         }
     });
 };    
+
+    function displayRandomQuote(){
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        document.getElementById("quote").innerText = quotes[randomIndex];
+    }
 
     //할 일 추가 또는 수정    
     function addTask() {
@@ -206,4 +230,6 @@ window.onload = function(){
         }
         renderTasks();
     }
+
+    
   
