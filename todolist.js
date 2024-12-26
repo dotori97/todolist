@@ -65,8 +65,7 @@ window.onload = function(){
             마음에 들지 않을 경우<br> 
             맞춤설정을 이용하세요.<br> 
             다양한 색상과 만나실 수 있습니다.<br></p>
-            <img src="./help.jpg" alt="color picker" style="width:100%; margin-top:10px;">
-            <h4>💬글자색은 흰색과 검은색 두 가지입니다. 바꾸길 원하시면 해당 리스트를 클릭하세요:-)</h4>            
+            <img src="./help.jpg" alt="color picker" style="width:100%; margin-top:10px;">                        
         `;
         modal.style.display = "block";
     })
@@ -163,8 +162,6 @@ window.onload = function(){
                 const listItem = document.createElement("li");
                 listItem.style.backgroundColor = task.color || "#f9f9f9";
 
-
-
                 const checkbox = document.createElement("input");
                 checkbox.type = "checkbox";
                 checkbox.checked = task.completed;
@@ -197,14 +194,14 @@ window.onload = function(){
                 listItem.appendChild(editButton);
                 listItem.appendChild(deleteButton);
 
-                listItem.addEventListener('click', function() {
-                    // 색상을 흰색과 검정색으로 번갈아가며 변경
-                    if (listItem.style.color === 'white') {
-                        listItem.style.color = 'black';
-                    } else {
-                        listItem.style.color = 'white';
-                    }
-                });
+                // listItem.addEventListener('click', function() {
+                //     // 색상을 흰색과 검정색으로 번갈아가며 변경
+                //     if (listItem.style.color === 'white') {
+                //         listItem.style.color = 'black';
+                //     } else {
+                //         listItem.style.color = 'white';
+                //     }
+                // });
 
                 // listItem.addEventListener('click', toggleColor);
                 // listItem.addEventListener('touchstart', (e) => {
@@ -280,6 +277,15 @@ window.onload = function(){
                 editButton.style.display="none";
                 deleteButton.style.display="none";
             }
+
+            item.addEventListener('click', function() {
+                // 색상을 흰색과 검정색으로 번갈아가며 변경
+                if (item.style.color === 'white') {
+                    item.style.color = 'black';
+                } else {
+                    item.style.color = 'white';
+                }
+            });
         });
     }
       
