@@ -65,9 +65,7 @@ window.onload = function(){
             마음에 들지 않을 경우<br> 
             맞춤설정을 이용하세요.<br> 
             다양한 색상과 만나실 수 있습니다.<br></p>
-            <img src="./help.jpg" alt="color picker" style="width:100%; margin-top:10px;">
-
-            <h3> 글자색을 변경하고 싶을 떄는 해당 리스트를 클릭하세요 <h3>
+            <img src="./help.jpg" alt="color picker" style="width:100%; margin-top:10px;">            
         `;
         modal.style.display = "block";
     })
@@ -198,21 +196,29 @@ window.onload = function(){
                 listItem.appendChild(editButton);
                 listItem.appendChild(deleteButton);
 
-                listItem.addEventListener('click', toggleColor);
-                listItem.addEventListener('touchstart', (e) => {
-                    
-                    e.preventDefault();
-                    toggleColor()
+                listItem.addEventListener('click', function() {
+                    // 색상을 흰색과 검정색으로 번갈아가며 변경
+                    if (listItem.style.color === 'white') {
+                        listItem.style.color = 'black';
+                    } else {
+                        listItem.style.color = 'white';
+                    }
                 });
 
-                
-                function toggleColor(){
-                    if(listItem.style.color==='white'){
-                        listItem.style.color='black';
-                    }else{
-                        listItem.style.color='white';
-                    }
-                }    
+                // listItem.addEventListener('click', toggleColor);
+                // listItem.addEventListener('touchstart', (e) => {
+                    
+                //     e.preventDefault();
+                //     toggleColor()
+                // });
+
+                // function toggleColor(){
+                //     if(listItem.style.color==='white'){
+                //         listItem.style.color='black';
+                //     }else{
+                //         listItem.style.color='white';
+                //     }
+                // }    
 
                 todolist.appendChild(listItem);
             });      
