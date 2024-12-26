@@ -65,7 +65,8 @@ window.onload = function(){
             마음에 들지 않을 경우<br> 
             맞춤설정을 이용하세요.<br> 
             다양한 색상과 만나실 수 있습니다.<br></p>
-            <img src="./help.jpg" alt="color picker" style="width:100%; margin-top:10px;">            
+            <img src="./help.jpg" alt="color picker" style="width:100%; margin-top:10px;">
+            <h4>💬글자색은 흰색과 검은색 두 가지입니다. 바꾸길 원하시면 해당 리스트를 클릭하세요:-)</h4>            
         `;
         modal.style.display = "block";
     })
