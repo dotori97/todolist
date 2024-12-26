@@ -25,7 +25,7 @@ const quotes = [
 //초기 로드 및 이벤트 리스너 설정
 window.onload = function(){
     loadFromLocalStorage();
-    displayRandomQuote();
+    // displayRandomQuote();
 
     document
         .getElementById("add-task-btn")
@@ -34,14 +34,13 @@ window.onload = function(){
     document
         .getElementById("edit-task-btn")
         .addEventListener("click", toggleEditButtons);
-
     
     const aboutButton = document.getElementById("about-btn");
     const modal = document.getElementById("about-modal");
     const closeModal = document.getElementById("close-modal");
     const tooltipBtn = document.getElementById("tooltipBtn");
     const modalContent = document.getElementById("modal-content");
-    
+        
     aboutButton.addEventListener("click", function(){
         modalContent.innerHTML=`
             <h2>==Notice!==</h2>
@@ -57,7 +56,7 @@ window.onload = function(){
         `;
         modal.style.display = "block";
     })
-
+            
     tooltipBtn.addEventListener("click", function(){
         modalContent.innerHTML=`
             <h3>== 배경색 설정 도움말 ==</h3>
@@ -67,6 +66,8 @@ window.onload = function(){
             맞춤설정을 이용하세요.<br> 
             다양한 색상과 만나실 수 있습니다.<br></p>
             <img src="./help.jpg" alt="color picker" style="width:100%; margin-top:10px;">
+
+            <h3> 글자색을 변경하고 싶을 떄는 해당 리스트를 클릭하세요 <h3>
         `;
         modal.style.display = "block";
     })
@@ -80,6 +81,20 @@ window.onload = function(){
             modal.style.display="none";
         }
     });
+
+    // const inputs = document.querySelectorAll(".user-input");
+    // const textColorBtn = document.getElementById("text-color-btn");
+        
+    // textColorBtn.addEventListener("click", ()=>{
+
+    //     inputs.forEach((input)=>{
+    //         if(input.style.color === "#2a2a2a" || input.style.color === ""){
+    //             input.style.color = "#dedbdb";
+    //         }else{
+    //             input.style.color="#2a2a2a";
+    //         }
+    //     })
+    // });        
 };    
 
     function displayRandomQuote(){
@@ -93,7 +108,7 @@ window.onload = function(){
         const dateInput = document.getElementById("date-input").value;
         const priorityInput = document.getElementById("priority-input").value;
         const colorInput = document.getElementById("color-input").value;
-
+        
         if (!taskInput || !dateInput) return;
 
         if(isEditing){
@@ -103,7 +118,7 @@ window.onload = function(){
                 task.task = taskInput;
                 task.date = dateInput;
                 task.priority = priorityInput;
-                task.color = colorInput;
+                task.color = colorInput;                
             }
             isEditing = false;
             editingTaskId = null;
@@ -131,7 +146,7 @@ window.onload = function(){
         document.getElementById("task-input").value="";
         document.getElementById("date-input").value="";
         document.getElementById("priority-input").value="";
-        document.getElementById("color-input").value = "#f9f9f9";
+        document.getElementById("color-input").value = "#f9f9f9";        
     }
 
     
@@ -148,6 +163,8 @@ window.onload = function(){
             .forEach((task) => {
                 const listItem = document.createElement("li");
                 listItem.style.backgroundColor = task.color || "#f9f9f9";
+
+
 
                 const checkbox = document.createElement("input");
                 checkbox.type = "checkbox";
@@ -180,6 +197,22 @@ window.onload = function(){
                 listItem.appendChild(taskText);
                 listItem.appendChild(editButton);
                 listItem.appendChild(deleteButton);
+
+                listItem.addEventListener('click', toggleColor);
+                listItem.addEventListener('touchstart', (e) => {
+                    
+                    e.preventDefault();
+                    toggleColor()
+                });
+
+                
+                function toggleColor(){
+                    if(listItem.style.color==='white'){
+                        listItem.style.color='black';
+                    }else{
+                        listItem.style.color='white';
+                    }
+                }    
 
                 todolist.appendChild(listItem);
             });      
@@ -242,6 +275,18 @@ window.onload = function(){
             }
         });
     }
+      
+    // function toggleColor() {
+    //     const taskItems = document.querySelectorAll("li");
+
+    //     taskItems.forEach((listItem) => {
+    //         if(listItem.style.color==='white'){
+    //             listItem.style.color='black';
+    //         }else{
+    //             listItem.style.color='white';
+    //         }
+    //     })            
+    // }
 
     //storage에 task추가
     function saveToLocalStorage(){
