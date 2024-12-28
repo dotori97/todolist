@@ -98,12 +98,8 @@ body {
     justify-content: center;
     position: relative;
 }
-#color-input{
-    margin-left: 7px;
-}
-
-#tooltipBtn{
-    margin-left: 7px;
+#color-input, #title-input, #title-btn, #tooltipBtn {
+    margin-left: 7px;    
 }
 
 /* #text-color-btn{

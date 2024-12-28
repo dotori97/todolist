@@ -27,6 +27,40 @@ window.onload = function(){
     loadFromLocalStorage();
     // displayRandomQuote();
 
+    const title = document.getElementById("title");
+    const titleBtn = document.getElementById("title-btn")
+    const titleInput = document.getElementById("title-input");
+
+    let todoTitle = localStorage.getItem("todoTitle") || "To Do List";
+    title.textContent = todoTitle; 
+    
+    titleBtn.addEventListener("click", function(){
+        titleInput.style.display="block";
+        titleInput.focus();
+    })
+
+    titleInput.addEventListener("keyup",(e)=>{
+        if(e.key==="Enter"){
+            const newTitle = titleInput.value.trim();
+            if(newTitle){
+                title.textContent = newTitle;
+                localStorage.setItem("todoTitle", newTitle);
+            }
+            titleInput.style.display="none";
+            titleInput.value="";
+        }               
+    })
+
+    const taskItems = document.querySelectorAll("li");
+    
+    taskItems.forEach((item)=>{
+        const taskKey = `task-${item.textContent.trim()}`;
+        const savedColor = localStorage.getItem(taskKey);
+        if(savedColor){
+            item.style.color = savedColor;
+        }     
+    })
+
     document
         .getElementById("add-task-btn")
         .addEventListener("click", addTask);
@@ -278,13 +312,13 @@ window.onload = function(){
                 deleteButton.style.display="none";
             }
 
+            const taskKey = `task-${item.textContent.trim()}`;
+            
             item.addEventListener('click', function() {
                 // 색상을 흰색과 검정색으로 번갈아가며 변경
-                if (item.style.color === 'white') {
-                    item.style.color = 'black';
-                } else {
-                    item.style.color = 'white';
-                }
+                const newColor = item.style.color === 'white'? "black" : "white";
+                item.style.color = newColor;
+                localStorage.setItem(taskKey, newColor);                
             });
         });
     }

@@ -12,7 +12,8 @@
     <body>
         <!-- 중앙 정렬을 위한 container div -->
         <div class="container">
-            <!-- <div class="intro">
+            <h1 id="title">To Do List</h1>
+            <!-- <div class="intro">                
                 <img class="fit-picture" src="./todolist3.png" alt="캐릭터 이미지">
                 <p id="quote">시간은 채우는 것보다 비우는 게 더 중요하다</p>
             </div> -->
@@ -38,7 +39,9 @@
                     <label for="color-input">배경색</label>                    
                     <input type="color" id="color-input" value="#f9f9f9">
                     <!-- <button id="text-color-btn">글자색</button> -->
-                    <button id="tooltipBtn">도움말</button>
+                    <button id="title-btn">제목입력</button>
+                    <input type="text" id="title-input" placeholder="제목을 입력하세요" style="display: none;">
+                    <button id="tooltipBtn">도움말</button>                    
                 </div>                  
             </div>
             <!-- 할 일 목록 -->
