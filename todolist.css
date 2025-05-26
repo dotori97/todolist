@@ -268,8 +268,11 @@ input.check {
 }
 
 textarea {
-  font-size: 16px;
+  font-family: inherit;
+  font-size: 18px;
+  width: 100%;
   padding: 10px;
+  box-sizing: border-box;  
   border-radius: 4px;
   resize: vertical;
 }
