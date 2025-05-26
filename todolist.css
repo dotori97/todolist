@@ -223,13 +223,25 @@ input.check {
 .modal{
     display:none;
     position: fixed;
-    z-index: 1000;
+    z-index: 999;
     left:0;
     top:0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal2 {
+    display: block; /* 페이지가 처음 열릴 때 보이도록 */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* 반투명 배경 */
 }
 
 .modal-content{
@@ -253,4 +265,11 @@ input.check {
 
 .close:hover{
     color: gray;
+}
+
+textarea {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 4px;
+  resize: vertical;
 }

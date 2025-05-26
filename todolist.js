@@ -54,7 +54,7 @@ window.onload = function(){
     const taskItems = document.querySelectorAll("li");
     
     taskItems.forEach((item)=>{
-        const taskKey = `task-${item.textContent.trim()}`;
+        const taskKey = `task-${item.textContent}`;
         const savedColor = localStorage.getItem(taskKey);
         if(savedColor){
             item.style.color = savedColor;
@@ -71,10 +71,31 @@ window.onload = function(){
     
     const aboutButton = document.getElementById("about-btn");
     const modal = document.getElementById("about-modal");
-    const closeModal = document.getElementById("close-modal");
+    const closeModal = document.getElementById("close-modal");    
     const tooltipBtn = document.getElementById("tooltipBtn");
     const modalContent = document.getElementById("modal-content");
-        
+    const modal2 = document.getElementById("longTermPlan");
+    const closeBtn = document.getElementById("close-modal2");
+    const saveBtn = document.getElementById("save-plan");
+    const textarea = document.getElementById("longterm-input");
+    
+    // 저장된 계획이 있다면 textarea에 채움
+    const savedPlan = localStorage.getItem("longTermPlanText");
+    if (savedPlan) {
+      textarea.value = savedPlan;
+    }
+
+    // 저장 버튼 클릭 시 저장
+    saveBtn.addEventListener("click", function () {
+      const planText = textarea.value.trim();
+      localStorage.setItem("longTermPlanText", planText);
+      alert("장기 계획이 저장되었습니다!");
+    });
+
+    closeBtn.addEventListener("click", function () {
+      modal2.style.display = "none";
+    });
+
     aboutButton.addEventListener("click", function(){
         modalContent.innerHTML=`
             <h2>==Notice!==</h2>
@@ -178,7 +199,7 @@ window.onload = function(){
         document.getElementById("task-input").value="";
         document.getElementById("date-input").value="";
         document.getElementById("priority-input").value="";
-        document.getElementById("color-input").value = "#f9f9f9";        
+        // document.getElementById("color-input").value = "#f9f9f9";        
     }
 
     
@@ -194,7 +215,13 @@ window.onload = function(){
             .sort((a, b) => a.priority - b.priority || new Date(a.date) - new Date(b.date))
             .forEach((task) => {
                 const listItem = document.createElement("li");
+                // listItem.taskKey = `task-${task.textContent}`;
                 listItem.style.backgroundColor = task.color || "#f9f9f9";
+
+                // const savedColor = localStorage.getItem(listItem.taskKey);
+                // if(savedColor){
+                //     listItem.style.color = savedColor;
+                // }
 
                 const checkbox = document.createElement("input");
                 checkbox.type = "checkbox";
@@ -251,6 +278,7 @@ window.onload = function(){
                 //         listItem.style.color='white';
                 //     }
                 // }    
+             
 
                 todolist.appendChild(listItem);
             });      
@@ -312,7 +340,7 @@ window.onload = function(){
                 deleteButton.style.display="none";
             }
 
-            const taskKey = `task-${item.textContent.trim()}`;
+            const taskKey = `task-${item.textContent}`;
             
             item.addEventListener('click', function() {
                 // 색상을 흰색과 검정색으로 번갈아가며 변경
